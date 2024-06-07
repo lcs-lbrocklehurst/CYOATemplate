@@ -17,6 +17,8 @@ struct SettingsView: View {
     // Access the book state through the environment
     @Environment(BookStore.self) var book
     
+    @State private var bgColor = Color.red
+    
     // MARK: Computed properties
     var body: some View {
         
@@ -37,7 +39,9 @@ struct SettingsView: View {
                 }
                 
                 Spacer()
+                ColorPicker("Set the background color", selection: $bgColor)
             }
+            
             .padding()
             .navigationTitle("Statistics")
             // Toolbar to show buttons for various actions
@@ -56,8 +60,6 @@ struct SettingsView: View {
             }
 
         }
-        // Dark / light mode toggle
-        .preferredColorScheme(book.reader.prefersDarkMode ? .dark : .light)
 
     }
 }

@@ -21,6 +21,7 @@ struct PageView: View {
     // (which is fed to the initializer of PageViewModel)
     // then PageView will be re-loaded, updating the text
     let viewModel: PageViewModel
+    @State private var bgColor = Color.red
     
     // MARK: Computed properties
     var body: some View {
@@ -84,8 +85,12 @@ struct PageView: View {
                     // Page still loading from database
                     ProgressView()
                 }
-                
+                // Dark / light mode toggle
+             //   .preferredColorScheme(book.reader.prefersDarkMode ? .dark : .light)
+                ColorPicker("Set the background color", selection: $bgColor)
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .background(bgColor)
             .padding()
         }
 

@@ -14,6 +14,7 @@ struct CoverView: View {
     // Access the book state through the environment
     @Environment(BookStore.self) var book
     
+    @State private var bgColor = Color.white
     // MARK: Computed properties
     var body: some View {
         VStack {
@@ -39,8 +40,11 @@ struct CoverView: View {
                 }
                 .buttonStyle(.borderedProminent)
             }
-            
+           
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(bgColor)
+
         .padding()
         
     }
