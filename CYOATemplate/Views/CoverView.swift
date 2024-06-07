@@ -28,6 +28,7 @@ struct CoverView: View {
                 Text("Journey Under the Sea")
                     .font(.largeTitle)
                 
+                
                 Button {
                     // Animate page changes (fade)
                     withAnimation {
