@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		479ED06E2C13A613008941D0 /* NVMColor in Frameworks */ = {isa = PBXBuildFile; productRef = 479ED06D2C13A613008941D0 /* NVMColor */; };
 		47C7E44D2C0E260C00A8991E /* Auth in Frameworks */ = {isa = PBXBuildFile; productRef = 47C7E44C2C0E260C00A8991E /* Auth */; };
 		47C7E44F2C0E260C00A8991E /* Functions in Frameworks */ = {isa = PBXBuildFile; productRef = 47C7E44E2C0E260C00A8991E /* Functions */; };
 		47C7E4512C0E260C00A8991E /* PostgREST in Frameworks */ = {isa = PBXBuildFile; productRef = 47C7E4502C0E260C00A8991E /* PostgREST */; };
@@ -108,6 +109,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				479ED06E2C13A613008941D0 /* NVMColor in Frameworks */,
 				47C7E4512C0E260C00A8991E /* PostgREST in Frameworks */,
 				47C7E44F2C0E260C00A8991E /* Functions in Frameworks */,
 				47C7E4572C0E260C00A8991E /* Supabase in Frameworks */,
@@ -304,6 +306,7 @@
 				47C7E4522C0E260C00A8991E /* Realtime */,
 				47C7E4542C0E260C00A8991E /* Storage */,
 				47C7E4562C0E260C00A8991E /* Supabase */,
+				479ED06D2C13A613008941D0 /* NVMColor */,
 			);
 			productName = CYOATemplate;
 			productReference = 81C198A52A251ABB0047A4B3 /* CYOATemplate.app */;
@@ -338,6 +341,7 @@
 			mainGroup = 81C1989C2A251ABB0047A4B3;
 			packageReferences = (
 				47C7E44B2C0E25B400A8991E /* XCRemoteSwiftPackageReference "supabase-swift" */,
+				479ED06C2C13A613008941D0 /* XCRemoteSwiftPackageReference "NVMColor_swift" */,
 			);
 			productRefGroup = 81C198A62A251ABB0047A4B3 /* Products */;
 			projectDirPath = "";
@@ -650,6 +654,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		479ED06C2C13A613008941D0 /* XCRemoteSwiftPackageReference "NVMColor_swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/NVMNovem/NVMColor_swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.5;
+			};
+		};
 		47C7E44B2C0E25B400A8991E /* XCRemoteSwiftPackageReference "supabase-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/supabase-community/supabase-swift";
@@ -661,6 +673,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		479ED06D2C13A613008941D0 /* NVMColor */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 479ED06C2C13A613008941D0 /* XCRemoteSwiftPackageReference "NVMColor_swift" */;
+			productName = NVMColor;
+		};
 		47C7E44C2C0E260C00A8991E /* Auth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 47C7E44B2C0E25B400A8991E /* XCRemoteSwiftPackageReference "supabase-swift" */;

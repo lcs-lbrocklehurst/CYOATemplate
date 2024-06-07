@@ -5,6 +5,7 @@
 //  Created by Russell Gordon on 2024-06-02.
 //
 
+import NVMColor
 import SwiftUI
 
 struct SettingsView: View {
@@ -17,9 +18,14 @@ struct SettingsView: View {
     // Access the book state through the environment
     @Environment(BookStore.self) var book
     
-    @State private var bgColor = Color.red
+    @State private var backgroundColor = Color.white
     
     // MARK: Computed properties
+    
+    var hexRepresentation: String {
+        return String(backgroundColor.hex?.isHex()?.dropLast(2) ?? "FFFFFF")
+    }
+    
     var body: some View {
         
         // Make the connection to the book state a two-way binding
@@ -29,19 +35,23 @@ struct SettingsView: View {
         // The user interface
         return NavigationStack {
             
-            VStack {
-                Toggle(isOn: $book.reader.prefersDarkMode) {
-                    Label {
-                        Text("Dark Mode")
-                    } icon: {
-                        Image(systemName: "moonphase.first.quarter")
+            ZStack {
+                backgroundColor
+                    .ignoresSafeArea()
+                VStack {
+                    Toggle(isOn: $book.reader.prefersDarkMode) {
+                        Label {
+                            Text("Dark Mode")
+                        } icon: {
+                            Image(systemName: "moonphase.first.quarter")
+                        }
                     }
+                    
+                    Spacer()
+                    ColorPicker("Set the background color", selection: $backgroundColor)
                 }
                 
-                Spacer()
-                ColorPicker("Set the background color", selection: $bgColor)
             }
-            
             .padding()
             .navigationTitle("Statistics")
             // Toolbar to show buttons for various actions
@@ -55,12 +65,18 @@ struct SettingsView: View {
                         Text("Done")
                             .bold()
                     }
-
+                    
                 }
             }
-
+            .onChange(of: backgroundColor) {
+                // This code runs whenever background color changes
+                dump(book.reader)
+                book.reader.backgroundColor = hexRepresentation
+                dump(book.reader)
+            }
+            
         }
-
+        
     }
 }
 
