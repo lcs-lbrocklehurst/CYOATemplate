@@ -91,8 +91,7 @@ struct PageView: View {
              //   .preferredColorScheme(book.reader.prefersDarkMode ? .dark : .light)
                 ColorPicker("Set the background color", selection: $bgColor)
             }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    .background(bgColor)
+          
             .padding()
         }
 
